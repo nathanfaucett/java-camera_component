@@ -1,0 +1,11 @@
+rootProject.name = "java-camera_component"
+
+
+include ":java-scene_graph"
+project(":java-scene_graph").projectDir = new File(settingsDir, "../java-scene_graph")
+
+include ":java-math"
+project(":java-math").projectDir = new File(settingsDir, "../java-math")
+
+include ":java-transform_components"
+project(":java-transform_components").projectDir = new File(settingsDir, "../java-transform_components")
