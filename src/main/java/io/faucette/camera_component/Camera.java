@@ -1,6 +1,7 @@
 package io.faucette.camera_component;
 
 
+import io.faucette.math.Vec2;
 import io.faucette.math.Vec4;
 import io.faucette.math.Mat32;
 import io.faucette.math.Mathf;
@@ -131,6 +132,32 @@ public class Camera extends Component {
                 Mat32.orthographic(projection, top, right, bottom, left);
             }
         }
+    }
+
+    private static Mat32 toWorldMatrix = new Mat32();
+    public Vec2 toWorld(Vec2 out, Vec2 v) {
+
+        out.x = 2f * (v.x * invWidth) - 1f;
+        out.y = -2f * (v.y * invHeight) + 1f;
+
+        Mat32.mul(toWorldMatrix, getProjection(), getView());
+        out.transform(toWorldMatrix.inverse());
+
+        return out;
+    }
+
+    private Mat32 toScreenMatrix = new Mat32();
+    private Vec2 toScreenVec = new Vec2();
+    public Vec2 toScreen(Vec2 out, Vec2 v) {
+        toScreenVec.copy(v);
+
+        Mat32.mul(toScreenMatrix, getProjection(), getView());
+        Vec2.transform(toScreenVec, toScreenVec, toScreenMatrix);
+
+        out.x = ((toScreenVec.x + 1f) * 0.5f) * width;
+        out.y = ((1f - toScreenVec.y) * 0.5f) * height;
+
+        return out;
     }
 
     @Override
