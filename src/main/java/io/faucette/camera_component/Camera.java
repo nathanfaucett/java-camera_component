@@ -1,6 +1,7 @@
 package io.faucette.camera_component;
 
 
+import io.faucette.math.Vec4;
 import io.faucette.math.Mat32;
 import io.faucette.math.Mathf;
 
@@ -29,6 +30,8 @@ public class Camera extends Component {
     private Mat32 projection;
     private Mat32 view;
 
+    private Vec4 background;
+
     private boolean needsUpdate;
 
 
@@ -53,6 +56,8 @@ public class Camera extends Component {
         projection = new Mat32();
         view = new Mat32();
 
+        background = new Vec4();
+
         needsUpdate = true;
     }
 
@@ -69,6 +74,14 @@ public class Camera extends Component {
         }
 
         return this;
+    }
+
+    public Camera setBackground(Vec4 background) {
+        this.background.copy(background);
+        return this;
+    }
+    public Vec4 getBackground() {
+        return this.background;
     }
 
     public Camera set(float width, float height) {
