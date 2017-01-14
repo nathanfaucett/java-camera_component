@@ -31,8 +31,8 @@ public class CameraTest {
         scene.init();
 
         float[] projection = {
-            0.33333334f, 0f,
-            0f, 0.5f,
+            0.66666667f, 0f,
+            0f, 1f,
             0f, 0f
         };
         assertArrayEquals(projection, camera.getProjection().getValues(), 0.0001f);

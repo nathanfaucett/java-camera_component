@@ -45,7 +45,7 @@ public class Camera extends Component {
 
         aspect = width / height;
 
-        orthographicSize = 2f;
+        orthographicSize = 1f;
 
         minOrthographicSize = Mathf.EPSILON;
         maxOrthographicSize = 1024f;
@@ -141,7 +141,7 @@ public class Camera extends Component {
 
         aspect = width / height;
 
-        orthographicSize = 2f;
+        orthographicSize = 1f;
 
         minOrthographicSize = Mathf.EPSILON;
         maxOrthographicSize = 1024f;
