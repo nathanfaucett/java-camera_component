@@ -85,6 +85,14 @@ public class Camera extends Component {
         return this.background;
     }
 
+    public Camera setOrthographicSize(float orthographicSize) {
+        this.orthographicSize = orthographicSize;
+        return this;
+    }
+    public float getOrthographicSize() {
+        return this.orthographicSize;
+    }
+
     public Camera set(float width, float height) {
 
         this.width = width;
